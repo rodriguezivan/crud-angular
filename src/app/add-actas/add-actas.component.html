@@ -1,0 +1,46 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Nueva
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva acta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="numeroInput">Número de acta</label>
+            <input [(ngModel)]="newActa.numero" type="number" class="form-control" id="numeroInput" name="numero" placeholder="1" required />
+          </div>
+          <div class="form-group">
+            <label for="tituloInput">Título</label>
+            <input [(ngModel)]="newActa.titulo" type="text" class="form-control" id="tituloInput" name="titulo" placeholder="Título" required>
+          </div>
+          <div class="form-group">
+            <label for="fechaInput">Fecha</label>
+            <input [(ngModel)]="newActa.fecha" type="date" class="form-control" id="fechaInput" name="fecha" placeholder="Fecha" required>
+          </div>
+          <div class="form-group">
+            <label for="selectInput">Estado</label>
+            <select [(ngModel)]="newActa.estado" class="form-control" id="selectInput" name="estado">
+              <option selected value="Aprobada">Aprobada</option>
+              <option value="Poner a consideracion">Poner a consideración</option>
+              <option value="Terminar">Terminar</option>
+            </select>
+          </div>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>  
+          <button (click)="saveActa()" type="button" class="btn btn-primary">Guardar</button>                  
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
